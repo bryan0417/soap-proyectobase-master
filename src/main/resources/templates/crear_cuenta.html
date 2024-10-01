@@ -1,0 +1,90 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Listado de CLientes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+</head>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">App Banco </span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/cuentas}">Listado de cuentas</a>
+
+        </div>
+
+    </div>
+</nav>
+<br>
+<br>
+<body class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+
+                <h1>Crear cliente</h1>
+                <div class="card-body">
+                    <form th:action="@{/cuentas}" method="post" th:object="${cuenta}">
+                        <div class="form-group">
+                            <label class="control-label" for="tipoCuenta">Tipo Cuenta : </label> <input
+                                id="tipoCuenta" type="text" class="form-control" th:field="*{tipoCuenta}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="saldo">Saldo : </label> <input
+                                id="saldo" type="number" class="form-control" th:field="*{saldo}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="numeroCuenta">Numero de Cuenta: </label> <input
+                                id="numeroCuenta" type="number" class="form-control" th:field="*{numeroCuenta}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="numeroCuenta">Propietario Cuenta: </label>
+                            <div class="col-sm-8">
+                                <select th:field="*{cliente}" class="form-control" required>
+                                    <th:block th:each="cliente : ${listaclientes}">
+                                        <option th:text="${cliente.nombre}" th:value="${cliente.cedula}"></option>
+                                    </th:block>
+                                </select>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Registrar</button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <br> <br>
+
+
+    </div>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</body>
+</html>

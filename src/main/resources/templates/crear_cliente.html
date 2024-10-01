@@ -1,0 +1,96 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Listado de CLientes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+</head>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">App Banco </span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/clientes}">Listado de clientes</a>
+
+        </div>
+
+    </div>
+</nav>
+<br>
+<br>
+<body class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+
+                <h1>Crear cliente</h1>
+                <div class="card-body">
+                    <form th:action="@{/clientes}" method="post" th:object="${cliente}">
+                        <div class="form-group">
+                            <label class="control-label" for="nombre">Nombre : </label> <input
+                                id="nombre" type="text" class="form-control" th:field="*{nombre}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="apellido">Apellidos : </label> <input
+                                id="apellido" type="text" class="form-control" th:field="*{apellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="tipoDocumento">Tipo de documento : </label> <input
+                                id="tipoDocumento" type="text" class="form-control" th:field="*{tipoDocumento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="cedula">Número documento : </label> <input
+                                id="cedula" type="number" class="form-control" th:field="*{cedula}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="correo">Correo electrónico : </label> <input
+                                id="correo" type="email" class="form-control" th:field="*{correo}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="celular">Celular : </label> <input
+                                id="celular" type="number" class="form-control" th:field="*{celular}"
+                                required autofocus="autofocus">
+                        </div>
+
+
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Registrar</button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <br> <br>
+
+
+    </div>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</body>
+</html>
